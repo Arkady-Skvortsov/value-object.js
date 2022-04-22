@@ -1,0 +1,23 @@
+{
+  "name": "value-object.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "keywords": [
+    "value-object",
+    "ts"
+  ],
+  "author": "Arkady-Skvortsov",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.25",
+    "jest": "^27.5.1",
+    "joi": "^17.6.0",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  }
+}
