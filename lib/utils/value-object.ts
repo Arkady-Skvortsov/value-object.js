@@ -1,5 +1,3 @@
-interface ValueObject {
-  getValue(): any;
-}
+class ValueObject {}
 
 export { ValueObject };

@@ -2,31 +2,22 @@
 
 # About
 
-It's implementation of Value-Object pattern solved a couple problems:
-
-1. Immutable data
-2. Valid data
+[Value-Object](https://github.com/Arkady-Skvortsov/value-object.js/blob/main/VALUE-OBJECT.md) implentation for Javascript/Typescript
 
 # Motivation
 
-I'm really tired from that, we are don't have a normally realisation of value-object pattern with cool interface and serialize/deserialize for database;
+I'm really tired from that, we are don't have a normally realisation of value-object pattern with cool interface: ;
 
 # How to use it ?
 
 ```ts
 import { ValueObject, Transform } from "value-object.js";
-import { Repository } from "../db";
 
-const valueObject = new ValueObject("Id", "string", "878675689786", {
+const valueObject = new ValueObject("name", "string", {
   ...validParams,
 });
 
+valueObject.setValue("Sub-Zero");
+
 valueObject.getValue(); // "878675689786"
-
-//For SQL database
-const transform = new Transform(valueObject.getValue());
-
-const repository = new Repository();
-
-repository.set(transform.from());
 ```
