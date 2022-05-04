@@ -1,14 +1,15 @@
 # Value-Object conception
 
-Value-Object pattern - means, that we can imagine our variables through another object for most ..... usage and validate;
-Here I implemented method B because I had to create for you guys)) a convenient JS-style interface for interacting with this pattern, which violates the Value-Object principle itself, but THIS is just a convenient interface and that's it; I want to give a real implementation under OOP style, not consturctor):
+Value-Object pattern - means, that we can imagine our variables through another object for more convenient use and validate;
 
 (⚠️) That concept need a little more time than you think!
 
 # Basics
 
-Wikipedia: https://en.wikipedia.org/wiki/Value_object#:~:text=In%20computer%20science%2C%20a%20value,money%20or%20a%20date%20range.
+Wikipedia: https://en.wikipedia.org/wiki/Value_object#:~:text=In%20computer%20science%2C%20a%20svalue,money%20or%20a%20date%20range
 Martin Fowler: https://martinfowler.com/bliki/ValueObject.html
+
+Regex in Javascript: https://fireship.io/lessons/regex-cheat-sheet-js/
 
 # When to use it ?
 

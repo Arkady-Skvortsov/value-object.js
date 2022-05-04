@@ -11,13 +11,11 @@ I'm really tired from that, we are don't have a normally realisation of value-ob
 # How to use it ?
 
 ```ts
-import { ValueObject, Transform } from "value-object.js";
+import { ValueObject } from "value-object.js";
 
-const valueObject = new ValueObject("name", "string", {
-  ...validParams,
-});
+const valueObject = new ValueObject("string", "/[A-Z]$/g");
 
 valueObject.setValue("Sub-Zero");
 
-valueObject.getValue(); // "878675689786"
+valueObject.getValue(); // "Sub-Zero"
 ```

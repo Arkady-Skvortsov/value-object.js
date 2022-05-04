@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "lib": "./lib"
+  },
   "scripts": {
     "build": "tsc --build",
     "test": "jest"
   },
   "keywords": [
     "value-object",
+    "javascript",
     "ts"
   ],
   "author": "Arkady-Skvortsov",
