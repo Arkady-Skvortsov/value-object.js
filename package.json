@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc --build",
-    "test": "jest"
+    "test": "jest ./tests",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "value-object",

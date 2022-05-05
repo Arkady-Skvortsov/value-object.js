@@ -13,9 +13,9 @@ I'm really tired from that, we are don't have a normally realisation of value-ob
 ```ts
 import { ValueObject } from "value-object.js";
 
-const valueObject = new ValueObject("string", "/[A-Z]$/g");
+const valueObject = new ValueObject("HASKELL", /^[A-Z]*$/);
 
-valueObject.setValue("Sub-Zero");
-
-valueObject.getValue(); // "Sub-Zero"
+valueObject.getValue(); // "HASKELL"
 ```
+
+# With Database

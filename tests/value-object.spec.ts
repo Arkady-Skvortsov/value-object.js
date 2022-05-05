@@ -1,21 +1,56 @@
+import { types } from "../lib/utils/types";
 import { ValueObject } from "../lib/utils/value-object";
 
 describe("Value-Object", () => {
-  let valueObject: any;
+  let value: types;
+  let regexp: RegExp;
 
-  beforeEach(() => {
-    valueObject = new ValueObject(/^[A-Z]*$/);
+  beforeAll(() => jest.clearAllMocks());
+
+  describe("Should be create a new value-object with string type", () => {
+    let name: ValueObject;
+    regexp = /^[A-Z]*$/;
+
+    it("Successfull", () => {
+      value = "ARKASHA";
+      name = new ValueObject(value, regexp);
+
+      expect(name).toBeDefined();
+      expect(name.getValue()).toBe(value);
+    });
+
+    it("With exception", () => {
+      value = "aRKASHA";
+      name = new ValueObject(value, regexp);
+
+      expect(name.getValue()).toBeInstanceOf(Error);
+    });
   });
 
-  it("Should be defined", () => {
-    expect(valueObject).toBeDefined();
+  describe("Should be create a new value-object with number type", () => {
+    let price: ValueObject;
+    regexp = /^[0-9]{3}/;
+
+    it("Successfull", () => {
+      value = 500;
+      price = new ValueObject(value, regexp);
+
+      expect(price).toBeDefined();
+      expect(price.getValue()).toEqual(value);
+    });
+
+    it("With exception", () => {
+      value = 5000;
+      price = new ValueObject(value, regexp);
+
+      expect(price).toBeDefined();
+      expect(price.getValue()).toBeInstanceOf(Error);
+    });
   });
 
-  it("Should set new value and validate", () => {
-    expect(valueObject.setValue("ARKASHA")).not.toBeInstanceOf(Error);
-  });
+  xit("Should be create a new value-object with boolean type", () => {});
 
-  it("Should get a value from object", () => {
-    expect(valueObject.getValue()).toBe("ARKASHA");
-  });
+  xit("Should be create a new value-object with object type", () => {});
+
+  xit("Should be create a new value-object with symbol type", () => {});
 });

@@ -1,32 +1,23 @@
-import { IValueObject } from "./interfaces/value-object.interface";
+import { types } from "./types";
 
 class ValueObject {
-  private value: any;
-  private readonly regex: RegExp;
+  private value: types;
 
-  constructor(regex: RegExp) {
-    this.regex = regex;
+  constructor(value: types, regex: RegExp) {
+    this.value = this.validate(value, regex);
   }
 
-  private validate(value: any): any {
-    if (!this.regex.test(value)) {
-      return new Error("Result is invalid!");
+  private validate(value: types, regex: RegExp): types | Error {
+    if (!regex.test(String(value))) {
+      return new Error(`${value} is invalid!!`);
     } else {
       return value;
     }
-  }
-
-  public setValue(value: any) {
-    this.value = this.validate(value);
   }
 
   public getValue() {
     return this.value;
   }
 }
-
-const valueObject = new ValueObject(/^[A-Z]*$/);
-valueObject.setValue("ARKASHA");
-console.log(valueObject.getValue());
 
 export { ValueObject };

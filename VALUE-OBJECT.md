@@ -24,13 +24,16 @@ Value-Object is better to use when your application has a lot of entities that n
 class Price {
   private readonly value;
 
-  constructor(value: number, regex: string) {
-    this.checkValue(value, regex);
-    this.value = value;
+  constructor(value: number, regexp: RegExp) {
+    this.value = this.checkValue(value, regexp);
   }
 
-  private checkValue(value: number, regex: string) {
-    return new RegEx(regex).test(value);
+  private checkValue(value: number, regex: RegExp) {
+    if (!regex.test(value)) {
+      return new Error(`${value} is invalid!!`);
+    } else {
+      return value;
+    }
   }
 
   getValue() {
@@ -49,7 +52,7 @@ class Car {
 
   constructor(price: number, title: string) {
     this.title = title;
-    this.price = new Price(price);
+    this.price = new Price(price, /^[0-9]{4}/);
   }
 
   getPrice() {
@@ -62,6 +65,18 @@ class Car {
 }
 
 export { Car };
+```
+
+## Transformer
+
+It's abstraction we need to transform our data to/from current database type
+
+```ts
+class Transformer {
+  from() {}
+
+  to() {}
+}
 ```
 
 ## Tests example
@@ -85,8 +100,8 @@ describe("Car", () => {
     expect(newPrice).toBeDefined();
     expect(newCar).toBeDefined();
     expect(newPrice.getValue()).toEqual(2009);
-    expect(newCar.getPrice).toEqual(2009);
-    expect(newCar.getTitle).toBe("Semerka");
+    expect(newCar.getPrice()).toEqual(2009);
+    expect(newCar.getTitle()).toBe("Semerka");
   });
 });
 ```

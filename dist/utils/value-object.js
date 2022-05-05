@@ -3,27 +3,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ValueObject = void 0;
 class ValueObject {
     value;
-    regex;
-    constructor(regex) {
-        this.regex = regex;
+    constructor(value, regex) {
+        this.value = this.validate(value, regex);
     }
-    validate(value) {
-        if (!this.regex.test(value)) {
-            return new Error("Result is invalid!");
+    validate(value, regex) {
+        if (!regex.test(String(value))) {
+            return new Error(`${value} is invalid!!`);
         }
         else {
             return value;
         }
-    }
-    setValue(value) {
-        this.value = this.validate(value);
     }
     getValue() {
         return this.value;
     }
 }
 exports.ValueObject = ValueObject;
-const valueObject = new ValueObject(/^[A-Z]*$/);
-valueObject.setValue("ARKASHA");
+const valueObject = new ValueObject(["F"], /^[0-9]{4}$/);
 console.log(valueObject.getValue());
 //# sourceMappingURL=value-object.js.map
