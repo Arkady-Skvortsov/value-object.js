@@ -29,7 +29,7 @@ describe("Value-Object", () => {
 
   describe("Should be create a new value-object with number type", () => {
     let price: ValueObject;
-    regexp = /^[0-9]{3}/;
+    regexp = /^[0-9]{3}$/;
 
     it("Successfull", () => {
       value = 500;
@@ -48,9 +48,34 @@ describe("Value-Object", () => {
     });
   });
 
-  xit("Should be create a new value-object with boolean type", () => {});
+  // describe("Should be create a new value-object with boolean type", () => {
+  //   let bool: ValueObject;
 
-  xit("Should be create a new value-object with object type", () => {});
+  //   it("", () => {});
 
-  xit("Should be create a new value-object with symbol type", () => {});
+  //   it("", () => {});
+  // });
+
+  describe("Should be create a new value-object with array type", () => {
+    let fruits: ValueObject;
+    regexp = /\[[A-Z, ]+[A-Z]*\]/;
+
+    it("Success", () => {
+      value = ["APPLE", "BANANA", "WATERMELON"];
+      fruits = new ValueObject(value, regexp);
+
+      expect(fruits).toBeDefined();
+      expect(fruits.getValue()).toBe(value);
+    });
+
+    it("With exception", () => {
+      value = [12, "F", "F"];
+      fruits = new ValueObject(value, regexp);
+
+      expect(fruits).toBeDefined();
+      expect(fruits.getValue()).toBeInstanceOf(Error);
+    });
+  });
+
+  describe("Should be create a new value-object with array type", () => {});
 });

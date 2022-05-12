@@ -6,7 +6,7 @@ Value-Object pattern - means, that we can imagine our variables through another 
 
 # Basics
 
-Wikipedia: https://en.wikipedia.org/wiki/Value_object#:~:text=In%20computer%20science%2C%20a%20svalue,money%20or%20a%20date%20range
+Wikipedia: https://en.wikipedia.org/wiki/Value_object#:~:text=In%20computer%20science%2C%20a%20svalue,money%20or%20a%20date%20range<br />
 Martin Fowler: https://martinfowler.com/bliki/ValueObject.html
 
 Regex in Javascript: https://fireship.io/lessons/regex-cheat-sheet-js/
